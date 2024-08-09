@@ -1,15 +1,15 @@
-package com.github.dlnest.digointellijplugin.services
+package com.github.dlnest.digo.services
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
-import com.github.dlnest.digointellijplugin.MyBundle
+import com.github.dlnest.digo.DigoBundle
 
 @Service(Service.Level.PROJECT)
 class MyProjectService(project: Project) {
 
     init {
-        thisLogger().info(MyBundle.message("projectService", project.name))
+        thisLogger().info(DigoBundle.message("projectService", project.name))
         thisLogger().warn("Don't forget to remove all non-needed sample code files with their corresponding registration entries in `plugin.xml`.")
     }
 

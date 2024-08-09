@@ -1,4 +1,4 @@
-package com.github.dlnest.digointellijplugin.listeners
+package com.github.dlnest.digo.listeners
 
 import com.intellij.openapi.application.ApplicationActivationListener
 import com.intellij.openapi.diagnostic.thisLogger
