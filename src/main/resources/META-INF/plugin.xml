@@ -1,18 +1,37 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.dlnest.digointellijplugin</id>
+    <id>com.github.dlnest.digo</id>
     <name>Digo</name>
     <vendor>dl-nest</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>org.jetbrains.plugins.go</depends>
+    <depends>org.jetbrains.plugins.yaml</depends>
+    <depends>JavaScript</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
+    <resource-bundle>messages.zh_cn</resource-bundle>
+
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.dlnest.digo.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+
+        <!--自动生成-->
+        <completion.contributor language="go"
+                                implementationClass="com.github.dlnest.digo.ui.contributor.CommentCompletion"/>
+        <!--注释-->
+        <annotator language="go"
+                   implementationClass="com.github.dlnest.digo.ui.codeInsight.annotator.CustomAnnotator"/>
+        <!--行标记-->
+        <codeInsight.lineMarkerProvider
+                language="go"
+                implementationClass="com.github.dlnest.digo.ui.codeInsight.lineMarker.SimpleLineMarkerProvider"/>
+
+        <toolWindow factoryClass="com.github.dlnest.digo.ui.toolwindow.MyToolWindowFactory" id="MyToolWindow"/>
+
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.dlnest.digo.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+        <listener class="com.github.dlnest.digo.listeners.DigoApplicationActivationListener"
+                  topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
 </idea-plugin>

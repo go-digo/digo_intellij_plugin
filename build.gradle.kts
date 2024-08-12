@@ -23,7 +23,7 @@ kotlin {
 // Configure project's dependencies
 repositories {
     mavenCentral()
-
+    gradlePluginPortal()
     // IntelliJ Platform Gradle Plugin Repositories Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-repositories-extension.html
     intellijPlatform {
         defaultRepositories()
@@ -32,6 +32,11 @@ repositories {
 
 // Dependencies are managed with Gradle version catalog - read more: https://docs.gradle.org/current/userguide/platforms.html#sub:version-catalog
 dependencies {
+    compileOnly(libs.lombok)
+    annotationProcessor(libs.lombok)
+    implementation(libs.hutool.http)
+    implementation(libs.hutool.json)
+
     testImplementation(libs.junit)
 
     // IntelliJ Platform Gradle Plugin Dependencies Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-dependencies-extension.html
@@ -47,7 +52,7 @@ dependencies {
         instrumentationTools()
         pluginVerifier()
         zipSigner()
-        testFramework(TestFrameworkType.Platform)
+        testFramework(TestFrameworkType.Plugin.Go)
     }
 }
 

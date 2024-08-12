@@ -9,8 +9,14 @@ kotlin = "1.9.24"
 kover = "0.8.1"
 qodana = "2024.1.5"
 
+hutool = "5.8.30"
+lombok = "1.18.34"
+
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+hutool-http = { group = "cn.hutool", name = "hutool-http", version.ref = "hutool" }
+hutool-json = { group = "cn.hutool", name = "hutool-json", version.ref = "hutool" }
+lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" }
 
 [plugins]
 changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }

@@ -1,4 +1,4 @@
-package com.github.dlnest.digo.toolWindow
+package com.github.dlnest.digo.ui.toolwindow
 
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
